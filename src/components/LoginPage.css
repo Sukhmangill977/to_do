@@ -1,0 +1,58 @@
+.login-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    position: relative;
+    overflow: hidden; /* Ensure no overflow if the image is large */
+  }
+  
+  .login-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+    max-width: 400px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5); /* Optional: Adds a dark overlay for better text visibility */
+    border-radius: 10px; /* Optional: Rounds the corners of the content box */
+  }
+  
+  .login-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .login-content input,
+  .login-content button {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .login-content button {
+    padding: 10px;
+  }
+  
+  .login-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden; /* Prevents image overflow */
+  }
+  
+  .login-image img {
+    width: 100%;
+    height: auto; /* Maintains aspect ratio */
+    max-height: 80vh; /* Limit the height to 80% of viewport height */
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the image */
+  }
+  

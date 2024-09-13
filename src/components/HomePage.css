@@ -1,0 +1,97 @@
+/* General Styles */
+.home-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden; /* Prevents overflow issues */
+  }
+  
+  .home-content {
+    position: absolute;
+    z-index: 1;
+    text-align: center; /* Center text for better mobile view */
+    color: #000000;
+    max-width: 90%; /* Use percentage to allow some flexibility */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add some shadow for depth */
+    border-radius: 10px; /* Rounded corners */
+    background: rgba(255, 255, 255, 0.8); /* Light background for readability */
+  }
+  
+  .home-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .home-content .btn {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .home-content .btn-primary {
+    background-color: #007bff; /* Primary button color */
+    color: #fff;
+  }
+  
+  .home-content .btn-primary:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: scale(1.05);
+  }
+  
+  .home-content .btn-secondary {
+    background-color: #6c757d; /* Secondary button color */
+    color: #fff;
+  }
+  
+  .home-content .btn-secondary:hover {
+    background-color: #5a6268; /* Darker shade on hover */
+    transform: scale(1.05);
+  }
+  
+  .home-image img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    max-height: 60vh; /* Limit the height */
+    object-fit: cover; /* Ensure the image covers the container */
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .home-container {
+      flex-direction: column;
+      text-align: center; /* Center content for smaller screens */
+    }
+  
+    .home-content {
+      position: relative;
+      margin: 20px auto; /* Adjust margin for better spacing on smaller screens */
+      max-width: 90%;
+    }
+  
+    .home-image img {
+      width: 100%;
+      height: auto;
+      max-height: 50vh; /* Adjust max height for smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .home-content h1 {
+      font-size: 1.8rem; /* Smaller font size for very small screens */
+    }
+  
+    .home-content .btn {
+      padding: 8px 16px; /* Adjust button padding */
+      font-size: 0.9rem; /* Adjust font size */
+    }
+  }
+  
