@@ -1,0 +1,43 @@
+# Node modules
+/node_modules/
+
+# Build output
+/build/
+/dist/
+
+# Firebase configuration
+/firebase-config.js
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# npm packages
+package-lock.json
+yarn.lock
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# TypeScript
+*.tsbuildinfo
+
+# MacOS-specific files
+*.DS_Store
+
+# Windows-specific files
+*.cab
+*.msi
+*.lnk
