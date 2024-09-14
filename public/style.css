@@ -1,0 +1,53 @@
+/* Dark Theme Styles */
+body.dark-mode .container {
+    background-color: #121212; /* Dark background for the container */
+  }
+  
+  body.dark-mode .profile-section,
+  body.dark-mode .todo-section {
+    background: #1e1e1e; /* Dark background for sections */
+    border: 1px solid #333; /* Darker border for subtle separation */
+  }
+  
+  body.dark-mode .profile-header h1,
+  body.dark-mode .weather-container h3,
+  body.dark-mode .todo-section h2 {
+    color: #e0e0e0; /* Light text for headers */
+  }
+  
+  body.dark-mode .logout-button,
+  body.dark-mode .btn-primary,
+  body.dark-mode .toggle-profile-button,
+  body.dark-mode .delete-button {
+    background-color: #424242; /* Dark button background */
+    color: #ffffff; /* Light button text */
+  }
+  
+  body.dark-mode .logout-button:hover,
+  body.dark-mode .btn-primary:hover,
+  body.dark-mode .toggle-profile-button:hover,
+  body.dark-mode .delete-button:hover {
+    background-color: #616161; /* Darker button background on hover */
+  }
+  
+  body.dark-mode .form-group label,
+  body.dark-mode .form-group input,
+  body.dark-mode .form-group select,
+  body.dark-mode .tasks-list button {
+    background-color: #333; /* Dark background for inputs and selects */
+    color: #e0e0e0; /* Light text for inputs and selects */
+  }
+  
+  body.dark-mode .tasks-list li {
+    background: #1e1e1e; /* Dark background for task list items */
+    border-bottom: 1px solid #333; /* Darker border for task list items */
+  }
+  
+  body.dark-mode .tasks-list button {
+    background-color: #616161; /* Darker button background for tasks */
+  }
+  
+  body.dark-mode .tasks-list button.complete {
+    background-color: #388e3c; /* Darker green for completed tasks */
+  }
+  

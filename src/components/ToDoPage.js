@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { fetchWeather } from '../services/weatherService';
 import ProgressChart from '../components/ProgressChart';
@@ -15,6 +15,7 @@ const ToDoPage = () => {
   const [location, setLocation] = useState('New York');
   const [isProfileVisible, setIsProfileVisible] = useState(false);
   const [newLocation, setNewLocation] = useState(location); // New state for location input
+  const profileRef = useRef(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -54,7 +55,7 @@ const ToDoPage = () => {
   const handleNotificationChange = (e) => setNotification(e.target.value);
   const handleRepeatChange = (e) => setRepeat(e.target.value);
   const handleDueDateChange = (e) => setDueDate(e.target.value);
-  
+
   const handleLocationChange = (e) => setNewLocation(e.target.value); // Handle location input change
   const handleLocationSubmit = () => setLocation(newLocation); // Update location
 
@@ -72,12 +73,19 @@ const ToDoPage = () => {
     setTasks(updatedTasks);
   };
 
-  const completedTasks = tasks.filter(task => task.completed).length;
-  const totalTasks = tasks.length;
-
   const toggleProfileSection = () => {
     setIsProfileVisible(!isProfileVisible);
+    if (!isProfileVisible) {
+      // Scroll to the To-Do list if profile is opened
+      window.scrollTo({
+        top: profileRef.current ? profileRef.current.offsetTop : 0,
+        behavior: 'smooth',
+      });
+    }
   };
+
+  const completedTasks = tasks.filter(task => task.completed).length;
+  const totalTasks = tasks.length;
 
   return (
     <div className="container">
@@ -85,13 +93,13 @@ const ToDoPage = () => {
       <button
         className="toggle-profile-button"
         onClick={toggleProfileSection}
-        aria-label="Toggle Profile"
+        aria-label={isProfileVisible ? "Close Profile" : "Open Profile"}
       >
         {isProfileVisible ? 'Close Profile' : 'Open Profile'}
       </button>
 
       {/* Profile Section */}
-      <div className={`profile-section ${isProfileVisible ? 'visible' : 'hidden'}`}>
+      <div className={`profile-section ${isProfileVisible ? 'visible' : 'hidden'}`} ref={profileRef}>
         <div className="profile-header">
           <h1>Profile</h1>
           <button onClick={handleLogout} className="logout-button">Logout</button>
@@ -130,7 +138,7 @@ const ToDoPage = () => {
       </div>
 
       {/* To-Do Section */}
-      <div className="todo-section">
+      <div className={`todo-section ${isProfileVisible ? 'with-profile' : 'without-profile'}`}>
         <h2>To-Do List</h2>
         <form onSubmit={addTask}>
           <div className="form-group">
