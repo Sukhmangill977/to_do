@@ -1,37 +1,36 @@
-/* Container styles */
+/* General Container Styles */
 .container {
-  display: flex;
-  flex-direction: row;
-  height: 100vh;
-  overflow: hidden;
-  font-family: Arial, sans-serif;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
 }
 
+/* Profile Section Styles */
 .profile-section {
-  width: 300px;
+  display: flex;
+  flex-direction: column;
   background-color: #f8f9fa;
-  border-right: 1px solid #dee2e6;
+  border-radius: 10px;
   padding: 20px;
-  box-sizing: border-box;
-  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
 .profile-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #dee2e6;
+  margin-bottom: 20px;
 }
 
 .logout-button {
   background-color: #dc3545;
   color: white;
   border: none;
-  padding: 10px;
+  padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 .logout-button:hover {
@@ -39,187 +38,141 @@
 }
 
 .profile-img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  margin-bottom: 15px;
+  object-fit: cover;
+  margin-bottom: 20px;
 }
 
 .weather-container {
-  margin-top: 15px;
+  margin-bottom: 20px;
 }
 
 .weather-container h3 {
   margin-bottom: 10px;
 }
 
-.weather-container p {
-  margin: 5px 0;
+.weather-container img {
+  width: 50px;
+  height: 50px;
 }
 
-.weather-container img {
-  width: 60px;
+.location-input {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.location-input input {
+  margin-right: 10px;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.location-input button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.location-input button:hover {
+  background-color: #0056b3;
 }
 
 .progress-container {
   margin-top: 20px;
 }
 
-.progress-chart {
-  width: 100%;
-  height: 200px;
-}
-
-.todo-section {
-  flex: 1;
-  padding: 20px;
-  background-color: #ffffff;
-  box-sizing: border-box;
-  overflow-y: auto;
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-
-  .profile-section {
-    width: 100%;
-    border-right: none;
-  }
-
-  .todo-section {
-    width: 100%;
-    padding: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .profile-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .logout-button {
-    width: 100%;
-  }
-
-  .weather-container img {
-    width: 50px;
-  }
-
-  .task-item i {
-    margin-right: 5px;
-    font-size: 1rem;
-  }
-}
-
-h2 {
+/* Toggle Profile Button Styles */
+.toggle-profile-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
   margin-bottom: 20px;
 }
 
-form .form-group {
+.toggle-profile-button:hover {
+  background-color: #0056b3;
+}
+
+/* To-Do Section Styles */
+.todo-section {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.todo-section h2 {
+  margin-bottom: 20px;
+}
+
+.form-group {
   margin-bottom: 15px;
 }
 
 .form-control {
   width: 100%;
   padding: 10px;
-  border-radius: 5px;
   border: 1px solid #ced4da;
-}
-
-.btn {
-  padding: 10px 15px;
   border-radius: 5px;
-  color: white;
-  border: none;
-  cursor: pointer;
 }
 
 .btn-primary {
   background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .btn-primary:hover {
   background-color: #0056b3;
 }
 
+/* Task Item Styles */
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ced4da;
+}
+
+.task-item.completed {
+  text-decoration: line-through;
+  color: #6c757d;
+}
+
+.task-details {
+  margin-left: 10px;
+  font-size: 0.9em;
+  color: #6c757d;
+}
+
+.task-checkbox {
+  margin-right: 10px;
+}
+
+/* Delete Button Styles */
 .btn-danger {
   background-color: #dc3545;
+  color: white; /* White text color */
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .btn-danger:hover {
   background-color: #c82333;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-li button {
-  margin-left: 10px;
-}
-
-/* Task item styles */
-.task-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.task-item.completed span {
-  text-decoration: line-through;
-  color: gray;
-}
-
-.task-item i {
-  margin-right: 10px;
-  font-size: 1.2rem;
-}
-/* Hidden by default on mobile */
-.profile-section.hidden {
-  display: none;
-}
-
-/* Show the profile section on mobile when it is not hidden */
-@media (max-width: 768px) {
-  .profile-section {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    height: 100vh;
-    overflow-y: auto;
-    transition: transform 0.3s ease;
-    transform: translateX(-100%);
-  }
-
-  .profile-section.visible {
-    transform: translateX(0);
-  }
-
-  .toggle-profile-button {
-    display: block;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 1001;
-  }
 }

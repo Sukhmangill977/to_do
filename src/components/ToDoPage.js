@@ -14,6 +14,7 @@ const ToDoPage = () => {
   const [weather, setWeather] = useState(null);
   const [location, setLocation] = useState('New York');
   const [isProfileVisible, setIsProfileVisible] = useState(false);
+  const [newLocation, setNewLocation] = useState(location); // New state for location input
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -53,6 +54,9 @@ const ToDoPage = () => {
   const handleNotificationChange = (e) => setNotification(e.target.value);
   const handleRepeatChange = (e) => setRepeat(e.target.value);
   const handleDueDateChange = (e) => setDueDate(e.target.value);
+  
+  const handleLocationChange = (e) => setNewLocation(e.target.value); // Handle location input change
+  const handleLocationSubmit = () => setLocation(newLocation); // Update location
 
   const handleLogout = () => {
     localStorage.removeItem('authToken');
@@ -109,7 +113,15 @@ const ToDoPage = () => {
             ) : (
               <p>Loading weather data...</p>
             )}
-            <button onClick={() => setLocation('New Location')}>Change Location</button>
+            <div className="location-input">
+              <input
+                type="text"
+                value={newLocation}
+                onChange={handleLocationChange}
+                placeholder="Enter new location"
+              />
+              <button onClick={handleLocationSubmit} className="btn btn-primary">Update Location</button>
+            </div>
           </div>
           <div className="progress-container">
             <ProgressChart completed={completedTasks} total={totalTasks} />
@@ -174,17 +186,21 @@ const ToDoPage = () => {
         <ul>
           {tasks.map((task, index) => (
             <li key={index} className={`task-item ${task.completed ? 'completed' : ''}`}>
-              <i
-                className={`fa ${task.completed ? 'fa-check-circle' : 'fa-circle'}`}
-                onClick={() => toggleTaskCompletion(index)}
-                style={{ cursor: 'pointer', color: task.completed ? 'green' : 'gray' }}
-              ></i>
-              <span>{task.text} - Priority: {task.priority} - Due: {task.dueDate} - Repeat: {task.repeat} - Notify: {task.notification}</span>
-              <i
-                className="fa fa-trash"
+              <input
+                type="checkbox"
+                checked={task.completed}
+                onChange={() => toggleTaskCompletion(index)}
+                className="task-checkbox"
+              />
+              <span className="task-details">
+                {task.text} - Priority: {task.priority} - Due: {task.dueDate} - Repeat: {task.repeat} - Notify: {task.notification}
+              </span>
+              <button
+                className="btn btn-danger"
                 onClick={() => deleteTask(index)}
-                style={{ cursor: 'pointer', color: 'red', marginLeft: '10px' }}
-              ></i>
+              >
+                Delete
+              </button>
             </li>
           ))}
         </ul>
